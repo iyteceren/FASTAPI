@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+</head>
+<body>
+
+    <h3>Fast API</h3>
+    <button onclick="api_request()">Ping</button>
+    <hr>
+
+    <form action="http://127.0.0.1:8000/upload" method="post" enctype="multipart/form-data">
+
+        <input type="file" name="dosya">
+        <button type="submit">Gönder</button>
+
+    </form>
+    
+
+    <script>
+
+        async function api_request(){
+
+            alert("PONG")
+            const request=await fetch("http://127.0.0.1:8000/")
+            const response=await request.json()
+            console.log("SVDEN gelen veri:", response)
+        }
+    </script>
+</body>
+</html>
